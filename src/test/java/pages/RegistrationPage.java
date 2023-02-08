@@ -20,10 +20,10 @@ public class RegistrationPage {
           firstNameInput = $("#firstName"),
           userEmail = $("#userEmail"),
           gender = $("#genterWrapper"),
-          UserPhoneNumber = $("#userNumber"),
-          DateOfBirthInput = $("#dateOfBirthInput"),
-          SubjectInput = $("#subjectsInput"),
-          HobbiesChoose = $("#hobbiesWrapper"),
+          userPhoneNumber = $("#userNumber"),
+          dateOfBirthInput = $("#dateOfBirthInput"),
+          subjectInput = $("#subjectsInput"),
+          hobbiesChoose = $("#hobbiesWrapper"),
           uploadPictureButton = $("#uploadPicture"),
 
   setAddressInput = $("#currentAddress"),
@@ -31,7 +31,7 @@ public class RegistrationPage {
           selectState = $("#stateCity-wrapper"),
           selectCityPopUp = $("#city"),
           selectCity = $("#stateCity-wrapper"),
-          SubmitButton = $("#submit");
+          submitButton = $("#submit");
 
 
   public RegistrationPage openPage() {
@@ -47,8 +47,8 @@ public class RegistrationPage {
     return this;
   }
 
-  public RegistrationPage setLastName() {
-    lastNameInput.setValue("Boom");
+  public RegistrationPage setLastName(String value) {
+    lastNameInput.setValue(value);
     return this;
   }
 
@@ -68,12 +68,12 @@ public class RegistrationPage {
   }
 
   public RegistrationPage setPhone(String value) {
-    UserPhoneNumber.setValue(value);
+    userPhoneNumber.setValue(value);
     return this;
   }
 
   public RegistrationPage setBirthDate(String day, String month, String year) {
-    DateOfBirthInput.click();
+    dateOfBirthInput.click();
     calendarComponent.setDate(day, month, year);
     return this;
   }
@@ -89,17 +89,17 @@ public class RegistrationPage {
   }
 
   public RegistrationPage setSubjects(String value) {
-    SubjectInput.setValue(value).pressEnter();
+    subjectInput.setValue(value).pressEnter();
     return this;
   }
 
   public RegistrationPage setHobbies(String value) {
-    HobbiesChoose.$(byText(value)).click();
+    hobbiesChoose.$(byText(value)).click();
     return this;
   }
 
   public RegistrationPage uploadPhoto(String text) {
-    uploadPictureButton.uploadFromClasspath(text);
+    uploadPictureButton.uploadFromClasspath("img/"+text);
     return this;
   }
   public RegistrationPage setAddress(String text) {
@@ -119,7 +119,7 @@ public class RegistrationPage {
     return this;
   }
   public RegistrationPage clickSubmitButton() {
-    SubmitButton.click();
+    submitButton.click();
     return this;
   }
 

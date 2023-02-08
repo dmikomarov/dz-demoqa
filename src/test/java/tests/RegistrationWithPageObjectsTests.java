@@ -17,7 +17,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     String dateOfBirth = "30 July,2008";
     String subject = "Maths";
     String hobbies = "Sports";
-    String pictureFIleName = "img/1.png";
+    String pictureFIleName = "1.png";
     String stateAndCity = "NCR Delhi";
     String name = "Alex";
     String lastName = "Boom";
@@ -29,13 +29,13 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
     registrationPage.openPage()
             .setFirstName(name)
-            .setLastName()
+            .setLastName(lastName)
             .setEmail(email)
-            .setGender("Other")
+            .setGender(gender)
             .setPhone(phoneNumber)
             .setBirthDate("30", "July", "2008")
-            .setSubjects("Maths")
-            .setHobbies("Sports")
+            .setSubjects(subject)
+            .setHobbies(hobbies)
             .uploadPhoto(pictureFIleName)
             .setAddress(currentAddress)
             .selectState(state)
@@ -44,7 +44,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
 
     registrationPage.verifyResultModalAppears()
-            .verifyResult("Student Name", name + "Egorov")
+            .verifyResult("Student Name", name + "" + lastName)
             .verifyResult("Student Email", email)
             .verifyResult("Gender", gender)
             .verifyResult("Mobile", phoneNumber)

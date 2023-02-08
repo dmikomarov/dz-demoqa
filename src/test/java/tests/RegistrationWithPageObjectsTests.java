@@ -44,7 +44,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
 
     registrationPage.verifyResultModalAppears()
-            .verifyResult("Student Name", name + "" + lastName)
+            .verifyResult("Student Name", name + " " + lastName)
             .verifyResult("Student Email", email)
             .verifyResult("Gender", gender)
             .verifyResult("Mobile", phoneNumber)

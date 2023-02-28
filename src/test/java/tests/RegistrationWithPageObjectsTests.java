@@ -1,31 +1,39 @@
 package tests;
 
+import com.github.javafaker.Faker;
+import com.github.javafaker.PhoneNumber;
+import data.Genders;
+import data.Subjects;
 import org.junit.jupiter.api.Test;
+import java.util.Date;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static utils.RandomUtils.birthDayGenerator;
+import static utils.RandomUtils.cityGenerator;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
 
   @Test
   void successfulRegistrationTest() {
-    //strings
-    String gender = "Other";
-    String dateOfBirth = "30 July,2008";
-    String subject = "Maths";
+
+    Faker faker = new Faker();
+
+    String name = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String email = faker.internet().emailAddress();
+    String currentAddress = faker.address().fullAddress();
+    String phoneNumber = String.valueOf(faker.number().numberBetween(9370000000L, 9379999999L));
+    String day = String.format("%02d", faker.number().numberBetween(1, 28));
+    String month = faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    String year = faker.number().numberBetween(1900, 2022) + "";
+    String gender = faker.options().option("Male", "Female", "Other");
+    String subject = faker.options().option("math", "music", "art", "money", "sports");
     String hobbies = "Sports";
-    String pictureFIleName = "1.png";
-    String stateAndCity = "NCR Delhi";
-    String name = "Alex";
-    String lastName = "Boom";
-    String email = "egorov@mail.ru";
-    String phoneNumber = "8005553535";
-    String currentAddress = "tuchkovo";
-    String state = "NCR";
-    String city = "Delhi";
+    String pictureFIleName = faker.options().option("1.png", "2.png");
+    String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+    String city = cityGenerator(state);
+
+
 
     registrationPage.openPage()
             .setFirstName(name)
@@ -33,7 +41,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
             .setEmail(email)
             .setGender(gender)
             .setPhone(phoneNumber)
-            .setBirthDate("30", "July", "2008")
+            .setBirthDate(day, month, year)
             .setSubjects(subject)
             .setHobbies(hobbies)
             .uploadPhoto(pictureFIleName)
@@ -48,12 +56,12 @@ public class RegistrationWithPageObjectsTests extends TestBase {
             .verifyResult("Student Email", email)
             .verifyResult("Gender", gender)
             .verifyResult("Mobile", phoneNumber)
-            .verifyResult("Date of Birth", dateOfBirth)
+            .verifyResult("Date of Birth", day + " " + month + "," + year)
             .verifyResult("Address", currentAddress)
             .verifyResult("Subjects", subject)
             .verifyResult("Hobbies", hobbies)
             .verifyResult("Picture", pictureFIleName)
-            .verifyResult("State and City", stateAndCity);
+            .verifyResult("State and City", String.format("%s %s", state, city));
     ;
 
 

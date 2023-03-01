@@ -27,7 +27,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     String month = faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
     String year = faker.number().numberBetween(1900, 2022) + "";
     String gender = faker.options().option("Male", "Female", "Other");
-    String subject = faker.options().option("math", "music", "art", "money", "sports");
+    String subject = faker.options().option("math", "art", "history");
     String hobbies = "Sports";
     String pictureFIleName = faker.options().option("1.png", "2.png");
     String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");

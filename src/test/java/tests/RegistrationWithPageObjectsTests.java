@@ -4,7 +4,9 @@ import com.github.javafaker.Faker;
 import com.github.javafaker.PhoneNumber;
 import data.Genders;
 import data.Subjects;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
 import java.util.Date;
 
 import static utils.RandomUtils.birthDayGenerator;
@@ -12,7 +14,7 @@ import static utils.RandomUtils.cityGenerator;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
-
+  @Tag("simple")
   @Test
   void successfulRegistrationTest() {
 
@@ -32,7 +34,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     String pictureFIleName = faker.options().option("1.png", "2.png");
     String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     String city = cityGenerator(state);
-
 
 
     registrationPage.openPage()
@@ -65,6 +66,5 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     ;
 
 
-
-
-}}
+  }
+}

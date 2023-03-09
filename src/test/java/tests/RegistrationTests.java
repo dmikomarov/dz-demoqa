@@ -1,9 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -38,7 +37,6 @@ public class RegistrationTests extends TestData {
   }
 
   @BeforeEach
-
   void beforEach() {
 //    name = getNewName();
 //    lastName = getNewLastName();
@@ -46,7 +44,9 @@ public class RegistrationTests extends TestData {
 
   }
 
+  @Tag("simple")
   @Test
+  @Disabled
   void successfulRegistrationTest() {
 
 

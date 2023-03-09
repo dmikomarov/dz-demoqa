@@ -2,6 +2,9 @@ package tests;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.PhoneNumber;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -34,8 +37,12 @@ public class RegistrationWithJavaFakerTests extends TestBase {
   String pictureFIleName = "1.png";
   String stateAndCity = "NCR Delhi";
 
-
-
+  @Tag("simple")
+  @Owner("Dmitry Komarov")
+  @Feature("Issue в репозитории")
+  @Story("Проверка Issue")
+  @Severity(SeverityLevel.NORMAL)
+  @DisplayName("Проверка Issue (Allure c Listener)")
   @Test
   void successfulRegistrationTest() {
 

@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 import static utils.RandomUtils.randomEmail;
 import static utils.RandomUtils.randomString;
 
@@ -46,8 +47,10 @@ public class RegistrationWithJavaFakerTests extends TestBase {
   @Test
   void successfulRegistrationTest() {
 
+    step("Открываем главную страницу", () ->{
+              open("automation-practice-form");
+            });
 
-    open("automation-practice-form");
     $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
     executeJavaScript("$('#fixedban').remove()");
     executeJavaScript("$('footer').remove()");

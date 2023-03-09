@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
+import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 import static utils.RandomUtils.birthDayGenerator;
 import static utils.RandomUtils.cityGenerator;
 
@@ -35,21 +37,23 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     String city = cityGenerator(state);
 
+    step("Открываем главную страницу и заполняем", () ->{
+      registrationPage.openPage()
+              .setFirstName(name)
+              .setLastName(lastName)
+              .setEmail(email)
+              .setGender(gender)
+              .setPhone(phoneNumber)
+              .setBirthDate(day, month, year)
+              .setSubjects(subject)
+              .setHobbies(hobbies)
+              .uploadPhoto(pictureFIleName)
+              .setAddress(currentAddress)
+              .selectState(state)
+              .selectCity(city)
+              .clickSubmitButton();
+    });
 
-    registrationPage.openPage()
-            .setFirstName(name)
-            .setLastName(lastName)
-            .setEmail(email)
-            .setGender(gender)
-            .setPhone(phoneNumber)
-            .setBirthDate(day, month, year)
-            .setSubjects(subject)
-            .setHobbies(hobbies)
-            .uploadPhoto(pictureFIleName)
-            .setAddress(currentAddress)
-            .selectState(state)
-            .selectCity(city)
-            .clickSubmitButton();
 
 
     registrationPage.verifyResultModalAppears()

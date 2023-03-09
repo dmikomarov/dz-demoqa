@@ -23,7 +23,7 @@ public class RegistrationWithRandomUtilsTests extends TestBase {
   String phoneNumber = "8005553535";
   String currentAddress = "tuchkovo";
 
-  @Tag("simple")
+
   @Test
   void successfulRegistrationTest() {
 

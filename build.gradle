@@ -9,7 +9,7 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-compileTestJava{
+compileTestJava {
     options.encoding = 'UTF-8'
 }
 
@@ -30,7 +30,26 @@ dependencies {
             "org.aspectj:aspectjweaver:1.9.8")
 
 }
+allure {
+    report {
+        version.set("2.19.0")
+    }
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        frameworks {
+            junit5 { //название фреймворка
+                adapterVersion.set("2.19.0") //версия интеграции фреймворка и Allure
+            }
+        }
+    }
+}
 
 test {
-    useJUnitPlatform{}
+    useJUnitPlatform {}
+}
+
+task DemoQaFirst (type: Test) {
+    useJUnitPlatform{
+        includeTags("simple")
+    }
 }

@@ -52,6 +52,7 @@ task DemoQaFirst (type: Test) {
     useJUnitPlatform{
         includeTags("simple")
     }
+    systemProperties(System.getProperties())
 }
 test {
     useJUnitPlatform()

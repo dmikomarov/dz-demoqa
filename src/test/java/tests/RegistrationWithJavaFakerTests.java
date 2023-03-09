@@ -2,6 +2,8 @@ package tests;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.PhoneNumber;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -35,7 +37,11 @@ public class RegistrationWithJavaFakerTests extends TestBase {
   String stateAndCity = "NCR Delhi";
 
 
-
+  @Owner("Dmitry Komarov")
+  @Feature("Issue в репозитории")
+  @Story("Проверка Issue")
+  @Severity(SeverityLevel.NORMAL)
+  @DisplayName("Проверка Issue (Allure c Listener)")
   @Test
   void successfulRegistrationTest() {
 

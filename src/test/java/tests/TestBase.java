@@ -27,15 +27,15 @@ public class TestBase {
   }
 
   @BeforeEach
-  void addListener(){
+  void addListener() {
     SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
   }
 
   @AfterEach
-  void addAttachments(){
+  void addAttachments() {
     Attach.screenshotAs("Last Screenshot");
     Attach.pageSource();
     Attach.browserConsoleLogs();
-   // Attach.video;
+    Attach.addVideo();
   }
 }

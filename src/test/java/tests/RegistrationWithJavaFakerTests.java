@@ -38,7 +38,7 @@ public class RegistrationWithJavaFakerTests extends TestBase {
   String pictureFIleName = "1.png";
   String stateAndCity = "NCR Delhi";
 
-  @Tag("simple")
+
   @Owner("Dmitry Komarov")
   @Feature("Issue в репозитории")
   @Story("Проверка Issue")

@@ -44,7 +44,7 @@ public class RegistrationTests extends TestData {
 
   }
 
-  @Tag("simple")
+
   @Test
   @Disabled
   void successfulRegistrationTest() {

@@ -1,19 +1,10 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.PhoneNumber;
-import data.Genders;
-import data.Subjects;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-import java.util.Date;
-
-import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
-import static utils.RandomUtils.birthDayGenerator;
 import static utils.RandomUtils.cityGenerator;
-
 public class RegistrationWithPageObjectsTests extends TestBase {
 
   @Tag("simple")
